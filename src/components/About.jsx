@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section className="about">
       <div className="container">
-        <h2 className="section-title">About StampCollector</h2>
+        <h2 className="section-title">About StampEllo Creator</h2>
         <div className="about-content">
           <div className="about-text">
             <p>
@@ -18,15 +18,17 @@ const About = () => {
             </p>
           </div>
           <div className="creator-info">
-            <h3>About the Creator</h3>
+            
             <div className="creator-card">
-              <div className="creator-image"></div>
-              <div className="creator-details">
-                <h4>John Doe</h4>
-                <p className="creator-title">Philatelist & Web Developer</p>
-                <p>
-                  With over 20 years of stamp collecting experience, John combines his passion for philately with his technical skills to create this digital collection platform.
-                </p>
+              <div className="creator-content">
+                <div className="creator-image"></div>
+                <div className="creator-details">
+                  <h4>Prabhath Kaluarachchi</h4>
+                  <p className="creator-title">Web Developer</p>
+                  {/* <p>
+                    With serveral years of web developing experience, Prabhath combines his passion for philately with his technical skills to create this digital collection platform.
+                  </p> */}
+                </div>
               </div>
             </div>
           </div>

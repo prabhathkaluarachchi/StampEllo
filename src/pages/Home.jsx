@@ -14,7 +14,7 @@ const Home = () => {
       <CategorySelection />
       <Cruisal />
       <About />
-      <GetInTouch />
+      {/* <GetInTouch /> */}
       <Footer />
     </>
   );
