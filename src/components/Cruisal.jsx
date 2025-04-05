@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../index.css';
+import '../index.css'; // Make sure this is correctly importing your styles
 
 const recentStamps = [
   {
@@ -9,7 +9,7 @@ const recentStamps = [
     year: '1840',
     description: 'The world\'s first adhesive postage stamp',
     category: 'Classic',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Penny_black.jpg/500px-Penny_black.jpg'
+    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',  // Replace with actual path
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const recentStamps = [
     year: '1918',
     description: 'Famous US airmail stamp with printing error',
     category: 'Commemorative',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Inverted_Jenny.jpg/500px-Inverted_Jenny.jpg'
+    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',  // Replace with actual path
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const recentStamps = [
     year: '1847',
     description: 'One of the rarest and most valuable stamps',
     category: 'Classic',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Mauritius_Post_Office_2p.jpg/500px-Mauritius_Post_Office_2p.jpg'
+    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',  // Replace with actual path
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const recentStamps = [
     year: '1855',
     description: 'Swedish stamp with color error',
     category: 'Classic',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Treskilling_yellow.jpg/500px-Treskilling_yellow.jpg'
+    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',  // Replace with actual path
   },
   {
     id: 5,
@@ -41,8 +41,8 @@ const recentStamps = [
     year: '1845',
     description: 'First tricolor stamp in the world',
     category: 'Classic',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Basel_Dove.jpg/500px-Basel_Dove.jpg'
-  }
+    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',  // Replace with actual path
+  },
 ];
 
 const Cruisal = () => {
@@ -51,7 +51,7 @@ const Cruisal = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % recentStamps.length);
-    }, 5000);
+    }, 5000); // Carousel will automatically change every 5 seconds
     return () => clearInterval(interval);
   }, []);
 

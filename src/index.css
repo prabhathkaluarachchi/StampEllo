@@ -687,8 +687,8 @@ a:hover {
 .get-in-touch {
   padding: 80px 0;
   background:
-  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
-  linear-gradient(	#300000, 	#300000);
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    linear-gradient(#300000, #300000);
 }
 
 .contact-container {
@@ -741,7 +741,10 @@ a:hover {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
-  padding: 30px;
+  padding: 25px; /* Reduced padding */
+  max-width: 500px; /* Further reduced max-width */
+  width: 100%; /* Ensure it takes up full width but doesn't exceed max-width */
+  margin: 0 auto; /* Center the form */
 }
 
 .form-group {
@@ -758,7 +761,7 @@ a:hover {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 12px 15px;
+  padding: 10px 12px; /* Reduced padding inside input fields */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--glass-border);
   border-radius: 5px;
@@ -781,7 +784,14 @@ a:hover {
   .contact-container {
     grid-template-columns: 1fr;
   }
+
+  .contact-form {
+    max-width: 100%; /* Ensure the form takes full width on small screens */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
 }
+
+
 
 /* Footer Styles */
 .footer {
@@ -1024,23 +1034,32 @@ a:hover {
     margin: 10px 0;
   }
 }
-
-/* Category Page Styles */
+/* Common Category Page Styles */
 .category-page {
-  padding: 100px 0 60px;
+  padding: 100px 20px 60px; /* Added some padding to avoid content being too close to the edges */
   min-height: 100vh;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+    linear-gradient(#300000, #300000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-title {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: var(--primary-color);
+  text-align: center; /* Center the page title */
 }
 
 .page-description {
   margin-bottom: 40px;
   color: var(--text-color);
   opacity: 0.9;
+  text-align: center; /* Center the page description */
+  max-width: 80%; /* Limit the width for better readability */
 }
 
 .stamps-grid {
@@ -1048,23 +1067,109 @@ a:hover {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
   margin-bottom: 40px;
+  max-width: 1200px; /* Limit grid width to center the cards */
+  width: 100%;
+}
+
+.stamp-item {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stamp-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stamp-img-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.stamp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.stamp-item:hover .stamp-img {
+  transform: scale(1.05);
+}
+
+.stamp-details {
+  padding: 20px;
+}
+
+.stamp-title {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.stamp-year {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.stamp-description {
+  color: var(--text-color);
+  opacity: 0.9;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.stamp-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.stamp-country {
+  background: rgba(75, 75, 75, 0.5);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.stamp-value {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 @media (max-width: 600px) {
-  .stamps-grid {
-    grid-template-columns: 1fr;
+  .category-page {
+    padding: 80px 10px 40px; /* Adjust padding for small screens */
   }
-  
+
   .page-title {
     font-size: 2rem;
   }
+
+  .stamps-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .page-description {
+    max-width: 100%;
+  }
 }
+
 
 /* About Page Styles */
 .about-page {
   padding: 100px 0 60px;
   min-height: 100vh;
-  background: var(--secondary-color);
+  background:
+    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+    linear-gradient(#300000, #300000);
 }
 
 .about-content {
@@ -1073,21 +1178,32 @@ a:hover {
 }
 
 .about-section {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .about-section h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 15px;
   color: var(--primary-color);
 }
 
 .about-section p {
   color: var(--text-color);
-  opacity: 0.9;
   line-height: 1.8;
   margin-bottom: 20px;
+  font-size: 1.1rem;
 }
+
+/* Style for the page title */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+}
+
+
+
 
 /* Error Boundary */
 .error-boundary {
