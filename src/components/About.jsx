@@ -10,12 +10,8 @@ const About = () => {
             <p>
               StampCollector is a passion project dedicated to preserving and showcasing the beauty and history of postage stamps from around the world. Our mission is to create a comprehensive digital archive that makes philately accessible to everyone.
             </p>
-            <p>
-              Founded in 2023, we've grown from a small private collection to a community-driven platform with thousands of stamps cataloged. Each stamp tells a unique story about the culture, history, and art of its time.
-            </p>
-            <p>
-              Whether you're a seasoned collector or just starting your philatelic journey, StampCollector offers resources, inspiration, and a community to share your passion with.
-            </p>
+
+
           </div>
           <div className="creator-info">
             

@@ -1,25 +1,3 @@
-/* Loading Spinner */
-.loading-spinner {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(226, 182, 22, 0.3);
-  border-radius: 50%;
-  border-top-color: var(--primary-color);
-  animation: spin 1s ease-in-out infinite;
-  margin: 40px auto;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.loading-text {
-  text-align: center;
-  margin-top: 20px;
-  color: var(--primary-color);
-}
-
 
 /* Base Styles */
 * {
@@ -131,12 +109,17 @@ a:hover {
 .navbar-links {
   display: flex;
   gap: 30px;
+  align-items: center; /* Added for vertical alignment */
 }
 
 .navbar-link {
   color: var(--text-color);
   font-weight: 500;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center; /* Ensure vertical centering */
+  height: 100%; /* Take full height of navbar */
+  padding: 5px 0; /* Adjust padding as needed */
 }
 
 .navbar-link:hover {
@@ -171,37 +154,12 @@ a:hover {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
-  .navbar-hamburger {
-    display: flex;
-  }
-  
-  .navbar-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    gap: 15px;
-    border-bottom: 1px solid var(--glass-border);
-    transform: translateY(-150%);
-    transition: transform 0.3s ease;
-  }
-  
-  .navbar-links.active {
-    transform: translateY(0);
-  }
-}
-
 /* Navbar Dropdown Styles */
 .navbar-link-container {
   position: relative;
-  display: inline-block;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-toggle {
@@ -211,15 +169,23 @@ a:hover {
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
-  padding: 0;
+  padding: 5px 0; /* Match other navbar links */
   display: flex;
   align-items: center;
   gap: 5px;
+  height: 100%;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  color: var(--primary-color);
 }
 
 .dropdown-arrow {
   font-size: 0.7rem;
   transition: transform 0.3s ease;
+  margin-left: 5px;
 }
 
 .dropdown-arrow.open {
@@ -228,7 +194,7 @@ a:hover {
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px); /* Position below the navbar */
   left: 0;
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
@@ -267,10 +233,37 @@ a:hover {
   color: var(--primary-color);
 }
 
-/* Mobile dropdown styles */
+/* Mobile styles */
 @media (max-width: 768px) {
+  .navbar-hamburger {
+    display: flex;
+  }
+  
+  .navbar-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 15px;
+    border-bottom: 1px solid var(--glass-border);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-links.active {
+    transform: translateY(0);
+  }
+
+  .navbar-link,
   .dropdown-toggle {
     width: 100%;
+    padding: 8px 0;
     justify-content: space-between;
   }
 
@@ -279,16 +272,16 @@ a:hover {
     background: transparent;
     border: none;
     padding: 0;
-    margin: 10px 0 10px 20px;
+    margin: 10px 0 0 20px;
     transform: none;
     display: none;
+    opacity: 1;
+    width: 100%;
   }
 
   .dropdown-menu.active {
     display: block;
-    opacity: 1;
     visibility: visible;
-    transform: none;
   }
 
   .dropdown-item {
@@ -301,10 +294,10 @@ a:hover {
   height: 100vh;
   background: 
   linear-gradient(
-    rgba(0, 0, 0, 0.1), 
+    rgba(0, 0, 0, 0.6), 
     rgba(0, 0, 0, 1)
   ),
-  #300000 url('./assets/img/hero.jpg') no-repeat center center / cover;
+  #300000 url('./assets/img/hero-04.jpg') no-repeat center center / cover;
 
   display: flex;
   align-items: center;
@@ -366,7 +359,7 @@ a:hover {
 .categories {
   padding: 50px 0;
   background:
-  linear-gradient(rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.7)),
+  linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
   linear-gradient(	#300000, 	#300000);
 }
 
@@ -423,7 +416,7 @@ a:hover {
 .recent-stamps {
   padding: 50px 0;
   background:
-  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)),
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
   linear-gradient(	#300000, 	#300000);
 
 
@@ -583,7 +576,7 @@ a:hover {
 .about {
   padding: 50px 0;
   background:
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7)),
+    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
 }
 
@@ -591,11 +584,14 @@ a:hover {
   display: flex;
   gap: 40px;
   margin-top: 40px;
-  align-items: flex-start;
+  align-items: stretch; /* Changed from flex-start to stretch */
 }
 
 .about-text {
-  flex: 2;
+  flex: 1.5; /* Changed from 2 to 1 for equal width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
 }
 
 .about-text p {
@@ -603,11 +599,13 @@ a:hover {
   color: var(--text-color);
   opacity: 0.9;
   line-height: 1.8;
-  text-align: left;
+  text-align: center;
 }
 
 .creator-info {
-  flex: 1;
+  flex: 1; /* Ensure equal width */
+  display: flex;
+  flex-direction: column;
 }
 
 .creator-info h3 {
@@ -616,39 +614,38 @@ a:hover {
   color: var(--primary-color);
   text-align: center;
 }
- 
+
 .creator-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
+  background: var(--glass-bg);  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
-  
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-
+  padding: 20px;
+  height: 100%; /* Take full available height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
 }
 
 .creator-content {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .creator-image {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 10%;
   background: #333;
-  margin: 0 auto 20px;
-  background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
+  margin: 0 auto 15px;
+  background-image: url('./assets/img/myimage.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .creator-details {
-  text-align: left;
+  text-align: center;
 }
 
 .creator-details h4 {
@@ -667,6 +664,7 @@ a:hover {
   color: var(--text-color);
   opacity: 0.8;
   line-height: 1.6;
+  text-align: center; /* Center text in mobile view */
 }
 
 @media (max-width: 768px) {
@@ -679,8 +677,9 @@ a:hover {
     width: 100%;
   }
   
-  .creator-details {
-    text-align: center;
+  .creator-card {
+    margin-top: 30px; /* Add space between sections in mobile */
+    height: auto; /* Allow natural height in mobile */
   }
 }
 
@@ -688,7 +687,7 @@ a:hover {
 .get-in-touch {
   padding: 80px 0;
   background:
-  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
   linear-gradient(	#300000, 	#300000);
 }
 
@@ -786,7 +785,9 @@ a:hover {
 
 /* Footer Styles */
 .footer {
-  background: var(--glass-bg);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    linear-gradient(#300000, #300000);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid var(--glass-border);
