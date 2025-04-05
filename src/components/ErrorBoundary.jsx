@@ -22,7 +22,7 @@ class ErrorBoundary extends Component {
         <div className="error-boundary">
           <h2>Something went wrong</h2>
           <p>We're sorry - we've encountered an unexpected error.</p>
-          <Link to="/StampEllo" className="btn">
+          <Link to="/" className="btn">
             Return Home
           </Link>
         </div>

@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/StampEllo',  // This should match your GitHub repository name
+  base: '/',  // This should match your GitHub repository name
 })

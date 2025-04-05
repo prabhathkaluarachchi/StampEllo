@@ -8,7 +8,7 @@ import NotFound from './components/NotFound';
 
 function App() {
   return (
-    <Router basename="/StampEllo">
+    <Router basename="/">
       <ErrorBoundary>
         <div className="app">
           <Routes>
