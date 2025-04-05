@@ -300,8 +300,12 @@ a:hover {
 .hero {
   height: 100vh;
   background: 
-  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.98)),
+  linear-gradient(
+    rgba(0, 0, 0, 0.1), 
+    rgba(0, 0, 0, 1)
+  ),
   #300000 url('./assets/img/hero-01.jpg') no-repeat center center / cover;
+
   display: flex;
   align-items: center;
   text-align: center;

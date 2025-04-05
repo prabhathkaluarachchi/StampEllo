@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../index.css';
 
 class ErrorBoundary extends Component {
@@ -21,12 +22,9 @@ class ErrorBoundary extends Component {
         <div className="error-boundary">
           <h2>Something went wrong</h2>
           <p>We're sorry - we've encountered an unexpected error.</p>
-          <button 
-            className="btn"
-            onClick={() => window.location.reload()}
-          >
-            Refresh Page
-          </button>
+          <Link to="/StampEllo" className="btn">
+            Return Home
+          </Link>
         </div>
       );
     }
