@@ -687,7 +687,7 @@ a:hover {
 .get-in-touch {
   padding: 80px 0;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
 }
 
