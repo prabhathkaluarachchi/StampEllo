@@ -4,7 +4,7 @@ import CategorySelection from '../components/CategorySelection';
 import Cruisal from '../components/Cruisal';
 import About from '../components/About';
 import Footer from '../components/Footer';
-import GetInTouch from '../components/GetInTouch';
+import ScrollToTop from "../components/ScrollToTop";
 
 const Home = () => {
   return (
@@ -13,8 +13,8 @@ const Home = () => {
       <Hero />
       <CategorySelection />
       <Cruisal />
+      <ScrollToTop />      
       <About />
-      {/* <GetInTouch /> */}
       <Footer />
     </>
   );

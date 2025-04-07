@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StampCard from '../components/StampCard';
 import Pagination from '../components/Pagination';
+import ScrollToTop from '../components/ScrollToTop';
 
 const PersonsPage = () => {
   const stamps = [
@@ -51,6 +52,7 @@ const PersonsPage = () => {
           onPageChange={handlePageChange}
         />
       </div>
+      <ScrollToTop /> 
       <Footer />
     </>
   );
