@@ -31,12 +31,13 @@ const Footer = () => {
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
               <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-pinterest"></i></a>
             </div>
-            <p className="footer-email">contact@stamphistory.com</p>
+            <p className="footer-email">fmprabhath@gmail.com</p>
           </div>
         </div>
         
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} StampEllo. All rights reserved.</p>
+          <p>Code & Developed by <a href="https://prabhath.online/" target='blank'>Prabhath Kaluarachchi</a> </p>
         </div>
       </div>
     </footer>

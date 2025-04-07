@@ -1036,7 +1036,7 @@ a:hover {
 }
 /* Common Category Page Styles */
 .category-page {
-  padding: 100px 20px 60px; /* Added some padding to avoid content being too close to the edges */
+  padding: 100px 40px 60px; /* Added some padding to avoid content being too close to the edges */
   min-height: 100vh;
   background: 
     linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
@@ -1145,7 +1145,7 @@ a:hover {
 
 @media (max-width: 600px) {
   .category-page {
-    padding: 80px 10px 40px; /* Adjust padding for small screens */
+    padding: 80px 40px 40px; /* Adjust padding for small screens */
   }
 
   .page-title {
