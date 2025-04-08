@@ -5,19 +5,19 @@ import '../index.css'; // Make sure this is correctly importing your styles
 const recentStamps = [
   {
     id: 1,
-    title: 'Penny Black',
-    year: '1840',
-    description: 'The world\'s first adhesive postage stamp',
-    category: 'Classic',
-    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',  // Replace with actual path
+    title: 'MOHIDEEN BAIG',
+    year: '2020-02-20',
+    description: '30mm x 41mm, Vertical',
+    category: 'Persons',
+    image: '/stamps/stamp6.jpg',  // Replace with actual path
   },
   {
     id: 2,
-    title: 'Inverted Jenny',
-    year: '1918',
-    description: 'Famous US airmail stamp with printing error',
-    category: 'Commemorative',
-    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',  // Replace with actual path
+    title: 'GERANDI ELLA WATERFALL',
+    year: '2024-02-02',
+    description: '41mm x 30mm, Horizontal',
+    category: 'Places',
+    image: '/stamps/stampp1.jpg',  // Replace with actual path
   },
   {
     id: 3,
