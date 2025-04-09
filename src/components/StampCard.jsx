@@ -4,7 +4,7 @@ import '../index.css';
 
 const StampCard = ({ stamp }) => {
   if (!stamp) return null;
-  const imageUrl = `http://localhost:5000${stamp.image}`;  // Combine the server URL and image path
+  const imageUrl = `https://stampello.onrender.com${stamp.image}`;  // Combine the server URL and image path
 
   return (
     <div className="stamp-item">

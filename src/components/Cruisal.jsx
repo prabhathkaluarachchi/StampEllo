@@ -11,7 +11,7 @@ const Cruisal = () => {
     // Fetch the 5 most recent stamps from the backend
     const fetchRecentStamps = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/stamps?limit=5'); // Assuming this route fetches the 5 most recent stamps
+        const response = await axios.get('https://stampello.onrender.com/api/stamps?limit=5'); // Assuming this route fetches the 5 most recent stamps
         setStamps(response.data);
       } catch (error) {
         console.error('Error fetching stamps:', error);
