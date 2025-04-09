@@ -1034,6 +1034,7 @@ a:hover {
     margin: 10px 0;
   }
 }
+
 /* Common Category Page Styles */
 .category-page {
   padding: 100px 40px 60px; /* Added some padding to avoid content being too close to the edges */
@@ -1280,4 +1281,166 @@ a:hover {
     display: none;
   }
 }
+
+
+/* Add Stamp Page Styles */
+.add-stamp-page {
+  padding: 100px 40px 60px; /* Added some padding to avoid content being too close to the edges */
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+    linear-gradient(#300000, #300000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-stamp-page h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center; /* Center the page title */
+}
+
+.stamp-form {
+  background: var(--glass-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-top: 20px; /* Ensure there's spacing between header and form */
+}
+
+.stamp-form .form-group {
+  margin-bottom: 15px;
+}
+
+.stamp-form label {
+  font-size: 1rem;
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.stamp-form select,
+.stamp-form input,
+.stamp-form textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 5px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.stamp-form select {
+  background: var(--dropdown-bg); /* Special background for dropdown */
+  color: var(--dropdown-text); /* Dropdown text color */
+}
+
+.stamp-form select:focus,
+.stamp-form input:focus,
+.stamp-form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.stamp-form select option {
+  padding: 12px 20px;
+  background: var(--primary-color); /* Option background */
+  color: var(--dropdown-text); /* Option text color */
+}
+
+.stamp-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.stamp-form button {
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.stamp-form button:hover {
+  background: var(--primary-color-dark);
+}
+
+.stamp-form .status-msg {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Image Upload */
+.stamp-form .form-group input[type="file"] {
+  display: block;
+  padding: 12px 20px;
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Make the upload button full width */
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.stamp-form .form-group input[type="file"]:focus {
+  border-color: var(--primary-color);
+}
+
+.stamp-form .form-group input[type="file"]::-webkit-file-upload-button {
+  padding: 10px 20px; /* Enhance the button's padding */
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stamp-form .form-group input[type="file"]::-webkit-file-upload-button:hover {
+  background: var(--primary-color-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stamp-form {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .stamp-form input,
+  .stamp-form select,
+  .stamp-form textarea {
+    font-size: 0.9rem;
+    padding: 10px; /* Reduce padding slightly for smaller screens */
+  }
+
+  .stamp-form button {
+    font-size: 1rem;
+    padding: 12px; /* Adjust button padding for mobile */
+  }
+
+  .stamp-form .form-group input[type="file"] {
+    font-size: 0.9rem;
+    padding: 12px 10px;
+  }
+}
+
+
 
