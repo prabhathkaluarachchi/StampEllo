@@ -45,7 +45,7 @@ const Cruisal = () => {
           
           <div className="carousel-content">
             {stamps.map((stamp, index) => {
-              const imageUrl = `http://localhost:5000${stamp.image}`;  // Combine the server URL and image path
+              const imageUrl = `https://stampello.onrender.com${stamp.image}`;  // Combine the server URL and image path
               return (
                 <div 
                   key={stamp._id} 
