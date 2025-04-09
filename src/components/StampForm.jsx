@@ -8,7 +8,7 @@ const StampForm = () => {
     description: "",
     country: "",
     value: "",
-    category: "", // Default to 'Events'
+    category: "Events", // Default to 'Events'
   });
   const [imageFile, setImageFile] = useState(null);
   const [message, setMessage] = useState("");
