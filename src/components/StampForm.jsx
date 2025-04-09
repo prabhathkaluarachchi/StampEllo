@@ -34,7 +34,7 @@ const StampForm = () => {
     data.append("image", imageFile);
 
     try {
-      await axios.post("http://localhost:5000/api/stamps/add", data);
+      await axios.post("https://stampello.onrender.com/api/stamps/add", data);
       setMessage("Stamp uploaded successfully!");
       setFormData({
         title: "",
