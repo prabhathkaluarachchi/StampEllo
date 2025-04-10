@@ -23,7 +23,7 @@ function App() {
           <Route path="/get-in-touch" element={<GetInTouchPage />} />
 
           {/* ✅ New Route for Adding a Stamp */}
-          <Route path="/add-stamp" element={<AddStampPage />} />
+          <Route path="/add-stamp" element={<AddStampPage />} /> 
 
           {/* Catch-all route for 404 errors */}
           <Route path="*" element={<NotFound />} />

@@ -1337,6 +1337,7 @@ a:hover {
   background: var(--input-bg);
   color: var(--text-color);
   transition: all 0.3s ease;
+  margin-bottom: 8px; /* Added margin for spacing */
 }
 
 .stamp-form select {
@@ -1377,6 +1378,9 @@ a:hover {
 
 .stamp-form button:hover {
   background: var(--primary-color-dark);
+  border: #f5d76e 1px solid;
+  color: whitesmoke ;
+
 }
 
 .stamp-form .status-msg {
@@ -1401,6 +1405,7 @@ a:hover {
 
 .stamp-form .form-group input[type="file"]:focus {
   border-color: var(--primary-color);
+
 }
 
 .stamp-form .form-group input[type="file"]::-webkit-file-upload-button {
@@ -1415,6 +1420,8 @@ a:hover {
 
 .stamp-form .form-group input[type="file"]::-webkit-file-upload-button:hover {
   background: var(--primary-color-dark);
+  color: whitesmoke;
+  border: #f5d76e 1px solid;
 }
 
 /* Responsive Design */
@@ -1429,6 +1436,7 @@ a:hover {
   .stamp-form textarea {
     font-size: 0.9rem;
     padding: 10px; /* Reduce padding slightly for smaller screens */
+    margin-bottom: 10px; /* Adjust margin for smaller screens */
   }
 
   .stamp-form button {

@@ -9,22 +9,15 @@ import ScrollToTop from '../components/ScrollToTop';
 const PersonsPage = () => {
   const [stamps, setStamps] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const itemsPerPage = 8;
 
   useEffect(() => {
     const fetchStamps = async () => {
-      setLoading(true);
-      setError(null);
       try {
         const response = await axios.get('https://stampello.onrender.com/api/stamps?category=Persons');
         setStamps(response.data);
       } catch (error) {
         console.error('Failed to fetch stamps:', error);
-        setError('Error loading stamps. Please try again later.');
-      } finally {
-        setLoading(false);
       }
     };
     fetchStamps();
@@ -46,32 +39,16 @@ const PersonsPage = () => {
           Explore stamps featuring notable individuals from history, science, and culture.
         </p>
 
-        {loading ? (
-          <div className="loading-container">
-            <p>Loading stamps...</p>
-            {/* You can use any loader component here */}
-            <div className="loading-spinner"></div>
-          </div>
-        ) : error ? (
-          <p>{error}</p>
-        ) : (
-          <div className="stamps-grid">
-            {currentStamps.length === 0 ? (
-              <p>No stamps available in this category.</p>
-            ) : (
-              currentStamps.map((stamp) => (
-                <StampCard key={stamp._id} stamp={stamp} />
-              ))
-            )}
-          </div>
-        )}
+        <div className="stamps-grid">
+          {currentStamps.map((stamp) => (
+            <StampCard key={stamp._id} stamp={stamp} />
+          ))}
+        </div>
 
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
+        <Pagination 
+          currentPage={currentPage} 
+          totalPages={totalPages} 
           onPageChange={handlePageChange}
-          isPrevDisabled={currentPage === 1}
-          isNextDisabled={currentPage === totalPages}
         />
       </div>
       <ScrollToTop />
@@ -82,99 +59,6 @@ const PersonsPage = () => {
 
 export default PersonsPage;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import Navbar from '../components/Navbar';
-// import Footer from '../components/Footer';
-// import StampCard from '../components/StampCard';
-// import Pagination from '../components/Pagination';
-// import ScrollToTop from '../components/ScrollToTop';
-
-// const PersonsPage = () => {
-//   const [stamps, setStamps] = useState([]);
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const itemsPerPage = 8;
-
-//   useEffect(() => {
-//     const fetchStamps = async () => {
-//       try {
-//         const response = await axios.get('https://stampello.onrender.com/api/stamps?category=Persons');
-//         setStamps(response.data);
-//       } catch (error) {
-//         console.error('Failed to fetch stamps:', error);
-//       }
-//     };
-//     fetchStamps();
-//   }, []);
-
-//   const handlePageChange = (page) => {
-//     setCurrentPage(page);
-//   };
-
-//   const currentStamps = stamps.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-//   const totalPages = Math.ceil(stamps.length / itemsPerPage);
-
-//   return (
-//     <>
-//       <Navbar />
-//       <div className="category-page persons-page">
-//         <h1 className="page-title">Persons Collection</h1>
-//         <p className="page-description">
-//           Explore stamps featuring notable individuals from history, science, and culture.
-//         </p>
-
-//         <div className="stamps-grid">
-//           {currentStamps.map((stamp) => (
-//             <StampCard key={stamp._id} stamp={stamp} />
-//           ))}
-//         </div>
-
-//         <Pagination 
-//           currentPage={currentPage} 
-//           totalPages={totalPages} 
-//           onPageChange={handlePageChange}
-//         />
-//       </div>
-//       <ScrollToTop /> 
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default PersonsPage;
 
 
 
