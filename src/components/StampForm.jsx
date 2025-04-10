@@ -12,7 +12,6 @@ const StampForm = () => {
   });
   const [imageFile, setImageFile] = useState(null);
   const [message, setMessage] = useState("");
-  const [uploadedImageUrl, setUploadedImageUrl] = useState(""); // Store the uploaded image URL
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,34 +29,20 @@ const StampForm = () => {
       return;
     }
 
-    // Step 1: Prepare form data for the backend
     const data = new FormData();
-    data.append("title", formData.title);
-    data.append("year", formData.year);
-    data.append("description", formData.description);
-    data.append("country", formData.country);
-    data.append("value", formData.value);
-    data.append("category", formData.category);
-    data.append("image", imageFile); // Send the image file
+    Object.entries(formData).forEach(([key, val]) => data.append(key, val));
+    data.append("image", imageFile);
 
     try {
-      // Step 2: Send the data to your backend
-      const response = await axios.post("https://stampello.onrender.com/api/stamps/add", data);
-
+      await axios.post("https://stampello.onrender.com/api/stamps/add", data);
       setMessage("Stamp uploaded successfully!");
-
-      // Optionally store the uploaded image URL
-      const uploadedStamp = response.data.stamp;
-      setUploadedImageUrl(uploadedStamp.image); // Set the uploaded image URL
-
-      // Reset form after successful upload
       setFormData({
         title: "",
         year: "",
         description: "",
         country: "",
         value: "",
-        category: "Events", // Default back to 'Events'
+        category: "",
       });
       setImageFile(null);
     } catch (err) {
@@ -83,7 +68,6 @@ const StampForm = () => {
             <option value="Transportation">Transportation</option>
           </select>
         </div>
-
         <input
           name="title"
           type="text"
@@ -137,20 +121,17 @@ const StampForm = () => {
 
         <button type="submit">Add Stamp</button>
         {message && <p className="status-msg">{message}</p>}
-
-        {/* Display the uploaded image after successful upload */}
-        {uploadedImageUrl && (
-          <div>
-            <h3>Uploaded Stamp:</h3>
-            <img src={uploadedImageUrl} alt="Uploaded Stamp" style={{ maxWidth: "300px", marginTop: "10px" }} />
-          </div>
-        )}
       </form>
     </div>
   );
 };
 
 export default StampForm;
+
+
+
+
+
 
 
 
@@ -171,6 +152,7 @@ export default StampForm;
 //   });
 //   const [imageFile, setImageFile] = useState(null);
 //   const [message, setMessage] = useState("");
+//   const [uploadedImageUrl, setUploadedImageUrl] = useState(""); // Store the uploaded image URL
 
 //   const handleChange = (e) => {
 //     const { name, value } = e.target;
@@ -188,20 +170,34 @@ export default StampForm;
 //       return;
 //     }
 
+//     // Step 1: Prepare form data for the backend
 //     const data = new FormData();
-//     Object.entries(formData).forEach(([key, val]) => data.append(key, val));
-//     data.append("image", imageFile);
+//     data.append("title", formData.title);
+//     data.append("year", formData.year);
+//     data.append("description", formData.description);
+//     data.append("country", formData.country);
+//     data.append("value", formData.value);
+//     data.append("category", formData.category);
+//     data.append("image", imageFile); // Send the image file
 
 //     try {
-//       await axios.post("https://stampello.onrender.com/api/stamps/add", data);
+//       // Step 2: Send the data to your backend
+//       const response = await axios.post("https://stampello.onrender.com/api/stamps/add", data);
+
 //       setMessage("Stamp uploaded successfully!");
+
+//       // Optionally store the uploaded image URL
+//       const uploadedStamp = response.data.stamp;
+//       setUploadedImageUrl(uploadedStamp.image); // Set the uploaded image URL
+
+//       // Reset form after successful upload
 //       setFormData({
 //         title: "",
 //         year: "",
 //         description: "",
 //         country: "",
 //         value: "",
-//         category: "",
+//         category: "Events", // Default back to 'Events'
 //       });
 //       setImageFile(null);
 //     } catch (err) {
@@ -227,6 +223,7 @@ export default StampForm;
 //             <option value="Transportation">Transportation</option>
 //           </select>
 //         </div>
+
 //         <input
 //           name="title"
 //           type="text"
@@ -280,9 +277,23 @@ export default StampForm;
 
 //         <button type="submit">Add Stamp</button>
 //         {message && <p className="status-msg">{message}</p>}
+
+//         {/* Display the uploaded image after successful upload */}
+//         {uploadedImageUrl && (
+//           <div>
+//             <h3>Uploaded Stamp:</h3>
+//             <img src={uploadedImageUrl} alt="Uploaded Stamp" style={{ maxWidth: "300px", marginTop: "10px" }} />
+//           </div>
+//         )}
 //       </form>
 //     </div>
 //   );
 // };
 
 // export default StampForm;
+
+
+
+
+
+
