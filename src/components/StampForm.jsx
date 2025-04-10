@@ -30,16 +30,23 @@ const StampForm = () => {
       return;
     }
 
+    // Step 1: Prepare form data for the backend
     const data = new FormData();
-    Object.entries(formData).forEach(([key, val]) => data.append(key, val));
-    data.append("image", imageFile);
+    data.append("title", formData.title);
+    data.append("year", formData.year);
+    data.append("description", formData.description);
+    data.append("country", formData.country);
+    data.append("value", formData.value);
+    data.append("category", formData.category);
+    data.append("image", imageFile); // Send the image file
 
     try {
-      // Make API call to upload the stamp
+      // Step 2: Send the data to your backend
       const response = await axios.post("https://stampello.onrender.com/api/stamps/add", data);
+
       setMessage("Stamp uploaded successfully!");
 
-      // Assuming the API returns the stamp data, including the image URL
+      // Optionally store the uploaded image URL
       const uploadedStamp = response.data.stamp;
       setUploadedImageUrl(uploadedStamp.image); // Set the uploaded image URL
 
@@ -144,6 +151,7 @@ const StampForm = () => {
 };
 
 export default StampForm;
+
 
 
 
