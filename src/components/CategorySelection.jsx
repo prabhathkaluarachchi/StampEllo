@@ -5,25 +5,25 @@ const categories = [
   {
     name: 'Persons',
     description: 'Vintage stamps from the golden age of philately',
-    image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    image: './assets/category1.jpg',
     path: '/persons'
   },
   {
     name: 'Transportation',
     description: 'Stamps celebrating important events and anniversaries',
-    image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    image: './assets/category2.jpg',
     path: '/transportation'
   },
   {
     name: 'Places',
     description: 'Stamps organized by themes like animals, sports, and art',
-    image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    image: './assets/category3.jpg',
     path: '/places'
   },
   {
     name: 'Events',
     description: 'Stamps from countries around the globe',
-    image: 'https://images.unsplash.com/photo-1548032885-b5e38734688a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    image: './assets/category4.jpg',
     path: '/events'
   }
 ];

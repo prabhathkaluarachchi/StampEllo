@@ -5,20 +5,24 @@ import Footer from '../components/Footer';
 import StampCard from '../components/StampCard';
 import Pagination from '../components/Pagination';
 import ScrollToTop from '../components/ScrollToTop';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const TransportationPage = () => {
   const [stamps, setStamps] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const itemsPerPage = 8;
 
   useEffect(() => {
     const fetchStamps = async () => {
       try {
-        // Fetch transportation stamps from the backend API
+        setLoading(true);
         const response = await axios.get('https://stampello.onrender.com/api/stamps?category=Transportation');
         setStamps(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Failed to fetch stamps:', error);
+        setLoading(false);
       }
     };
     fetchStamps();
@@ -26,6 +30,7 @@ const TransportationPage = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const currentStamps = stamps.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
@@ -40,17 +45,23 @@ const TransportationPage = () => {
           Explore stamps celebrating transportation innovations.
         </p>
 
-        <div className="stamps-grid">
-          {currentStamps.map((stamp) => (
-            <StampCard key={stamp._id} stamp={stamp} />
-          ))}
-        </div>
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <div className="stamps-grid fade-in">
+              {currentStamps.map((stamp) => (
+                <StampCard key={stamp._id} stamp={stamp} />
+              ))}
+            </div>
 
-        <Pagination 
-          currentPage={currentPage} 
-          totalPages={totalPages} 
-          onPageChange={handlePageChange}
-        />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </>
+        )}
       </div>
       <ScrollToTop />
       <Footer />

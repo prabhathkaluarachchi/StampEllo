@@ -31,7 +31,7 @@ const Footer = () => {
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
               <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-pinterest"></i></a>
             </div>
-            <p className="footer-email">fmprabhath@gmail.com</p>
+            {/* <p className="footer-email">fmprabhath@gmail.com</p> */}
           </div>
         </div>
         
