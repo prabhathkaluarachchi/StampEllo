@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="footer-logo">StampEllo</h3>
             <p className="footer-about">
-              A digital archive of philatelic treasures from around the world, preserving history one stamp at a time.
+            Explore our curated collection of philatelic treasures in Sri Lanka.
             </p>
           </div>
           
@@ -26,10 +26,11 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="footer-title">Connect With Us</h3>
             <div className="social-links">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-              <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-pinterest"></i></a>
+              <a href="https://www.linkedin.com/in/prabhathkaluarachchi/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+              <a href="https://github.com/prabhathkaluarachchi" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
+              <a href="https://www.facebook.com/prabhathtkaluarachchi/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/prabhathtkaluarachchi/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+              <a href="https://wa.me/94772347420" target="_blank" rel="noopener noreferrer"><i className="fab fa-whatsapp"></i></a>
             </div>
             {/* <p className="footer-email">fmprabhath@gmail.com</p> */}
           </div>

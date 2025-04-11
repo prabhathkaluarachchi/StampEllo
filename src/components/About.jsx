@@ -1,4 +1,4 @@
-import '../index.css';
+import "../index.css";
 
 const About = () => {
   return (
@@ -8,13 +8,13 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-              StampCollector is a passion project dedicated to preserving and showcasing the beauty and history of postage stamps from around the world. Our mission is to create a comprehensive digital archive that makes philately accessible to everyone.
+              StampCollector is a passion project dedicated to preserving and
+              showcasing the beauty and history of postage stamps from around
+              the world. My mission is to create a comprehensive digital archive
+              that makes philately accessible to everyone.
             </p>
-
-
           </div>
           <div className="creator-info">
-            
             <div className="creator-card">
               <div className="creator-content">
                 <div className="creator-image"></div>

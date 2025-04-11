@@ -1,31 +1,35 @@
-import { Link } from 'react-router-dom';
-import '../index.css';
+import { Link } from "react-router-dom";
+import "../index.css";
 
 const categories = [
   {
-    name: 'Persons',
-    description: 'Vintage stamps from the golden age of philately',
-    image: './assets/category1.jpg',
-    path: '/persons'
+    name: "Persons",
+    description:
+      "Stamps honoring historical figures, cultural icons, and famous personalities.",
+    image: "./assets/category1.jpg",
+    path: "/persons",
   },
   {
-    name: 'Transportation',
-    description: 'Stamps celebrating important events and anniversaries',
-    image: './assets/category2.jpg',
-    path: '/transportation'
+    name: "Transportation",
+    description:
+      "Discover stamps featuring classic vehicles, trains, ships, and aviation milestones.",
+    image: "./assets/category2.jpg",
+    path: "/transportation",
   },
   {
-    name: 'Places',
-    description: 'Stamps organized by themes like animals, sports, and art',
-    image: './assets/category3.jpg',
-    path: '/places'
+    name: "Places",
+    description:
+      "Explore landmarks, scenic landscapes, and architectural wonders from around the world.",
+    image: "./assets/category3.jpg",
+    path: "/places",
   },
   {
-    name: 'Events',
-    description: 'Stamps from countries around the globe',
-    image: './assets/category4.jpg',
-    path: '/events'
-  }
+    name: "Events",
+    description:
+      "Commemorative stamps capturing historic events, celebrations, and anniversaries.",
+    image: "./assets/category4.jpg",
+    path: "/events",
+  },
 ];
 
 const CategorySelection = () => {
