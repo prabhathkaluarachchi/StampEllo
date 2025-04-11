@@ -1,13 +1,13 @@
 // pages/AdminDashboardPage.jsx
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AdminDashboard from "../components/AdminDashboard"; // ✅ import the new component
+import AdminDashboard from "../components/AdminDashboard";
 
 const AdminDashboardPage = () => {
   return (
     <>
       <Navbar />
-      <AdminDashboard /> {/* ✅ use the component here */}
+      <AdminDashboard />
       <Footer />
     </>
   );

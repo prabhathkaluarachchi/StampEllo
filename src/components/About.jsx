@@ -1,5 +1,3 @@
-import "../index.css";
-
 const About = () => {
   return (
     <section className="about">

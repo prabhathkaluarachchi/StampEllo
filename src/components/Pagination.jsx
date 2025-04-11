@@ -1,5 +1,3 @@
-import '../index.css';
-
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pageNumbers = [];
   

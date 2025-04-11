@@ -1,13 +1,15 @@
 // pages/AdminLoginPage.jsx
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AdminLogin from "../components/AdminLogin"; // ✅ import the reusable component
+import AdminLogin from "../components/AdminLogin";
+import ScrollToTop from "../components/ScrollToTop"; 
 
 const AdminLoginPage = () => {
   return (
     <>
       <Navbar />
-      <AdminLogin /> {/* ✅ use the reusable component here */}
+      <AdminLogin />
+      <ScrollToTop /> 
       <Footer />
     </>
   );

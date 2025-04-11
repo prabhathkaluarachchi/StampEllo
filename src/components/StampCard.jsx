@@ -1,10 +1,6 @@
-
-// StampCard.jsx
-import '../index.css';
-
 const StampCard = ({ stamp }) => {
   if (!stamp) return null;
-  const imageUrl = `https://stampello.onrender.com${stamp.image}`;  // Combine the server URL and image path
+  const imageUrl = `https://stampello.onrender.com${stamp.image}`; 
 
   return (
     <div className="stamp-item">

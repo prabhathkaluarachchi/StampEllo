@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowUpCircle } from "lucide-react"; // Optional icon library
-import '../index.css';
+import { ArrowUpCircle } from "lucide-react"; 
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);

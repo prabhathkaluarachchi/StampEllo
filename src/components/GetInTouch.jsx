@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
-import "../index.css";
 import Swal from 'sweetalert2';
 
 
