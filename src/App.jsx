@@ -7,7 +7,8 @@ import EventsPage from "./pages/EventsPage";
 import AboutPage from "./pages/AboutPage";
 import GetInTouchPage from "./pages/GetInTouchPage";
 import NotFound from "./pages/NotFound"; // Make sure to update if needed
-import AddStampPage from './pages/AddStampPage'; // ✅ Import the new page
+import AddStampPage from "./pages/AddStampPage"; // ✅ Import the new page
+import ManageStamps from "./components/ManageStamps"; // If ManageStamps is used here
 
 function App() {
   return (
@@ -23,7 +24,10 @@ function App() {
           <Route path="/get-in-touch" element={<GetInTouchPage />} />
 
           {/* ✅ New Route for Adding a Stamp */}
-          <Route path="/add-stamp" element={<AddStampPage />} /> 
+          <Route path="/add-stamp" element={<AddStampPage />} />
+
+          {/* ✅ New Route for Managing Stamps (corrected the component name) */}
+          <Route path="/manage-stamp" element={<ManageStamps />} />
 
           {/* Catch-all route for 404 errors */}
           <Route path="*" element={<NotFound />} />
