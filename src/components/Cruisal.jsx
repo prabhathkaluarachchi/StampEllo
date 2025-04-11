@@ -1,32 +1,35 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'; // Import axios to fetch data
-import '../index.css'; // Make sure this is correctly importing your styles
+import axios from 'axios';
+import '../index.css';
 
 const Cruisal = () => {
-  const [stamps, setStamps] = useState([]);  // State to store stamps
+  const [stamps, setStamps] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Fetch the 5 most recent stamps from the backend
     const fetchRecentStamps = async () => {
       try {
-        const response = await axios.get('https://stampello.onrender.com/api/stamps?limit=5'); // Assuming this route fetches the 5 most recent stamps
-        setStamps(response.data);
+        const response = await axios.get('https://stampello.onrender.com/api/stamps');
+        const recentStamps = response.data
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // sort by newest
+          .slice(0, 5); // take only 5
+        setStamps(recentStamps);
       } catch (error) {
         console.error('Error fetching stamps:', error);
       }
     };
 
     fetchRecentStamps();
+  }, []);
 
-    // Set an interval to automatically change the carousel every 5 seconds
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % stamps.length);
     }, 5000);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [stamps.length]); // Re-run effect if `stamps.length` changes
+    return () => clearInterval(interval);
+  }, [stamps]);
 
   const goToPrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + stamps.length) % stamps.length);
@@ -42,28 +45,25 @@ const Cruisal = () => {
         <h2 className="section-title">Recently Added</h2>
         <div className="carousel">
           <button className="carousel-button prev" onClick={goToPrev}>&#10094;</button>
-          
+
           <div className="carousel-content">
             {stamps.map((stamp, index) => {
-              const imageUrl = `https://stampello.onrender.com${stamp.image}`;  // Combine the server URL and image path
+              const imageUrl = `https://stampello.onrender.com${stamp.image}`;
               return (
-                <div 
-                  key={stamp._id} 
+                <div
+                  key={stamp._id}
                   className={`carousel-item ${index === currentIndex ? 'active' : ''}`}
                 >
                   <div className="stamp-card">
-                    <div 
-                      className="stamp-image" 
-                      style={{ backgroundImage: `url(${imageUrl})` }} // Use the full image URL here
+                    <div
+                      className="stamp-image"
+                      style={{ backgroundImage: `url(${imageUrl})` }}
                     ></div>
                     <div className="stamp-info">
                       <h3>{stamp.title}</h3>
                       <p className="stamp-year">{stamp.year}</p>
                       <p className="stamp-description">{stamp.description}</p>
-                      <Link 
-                        to={`/${stamp.category.toLowerCase()}`} 
-                        className="stamp-category"
-                      >
+                      <Link to={`/${stamp.category.toLowerCase()}`} className="stamp-category">
                         {stamp.category}
                       </Link>
                     </div>
@@ -72,10 +72,10 @@ const Cruisal = () => {
               );
             })}
           </div>
-          
+
           <button className="carousel-button next" onClick={goToNext}>&#10095;</button>
         </div>
-        
+
         <div className="carousel-indicators">
           {stamps.map((_, index) => (
             <button
@@ -91,4 +91,5 @@ const Cruisal = () => {
 };
 
 export default Cruisal;
+
 
