@@ -1,12 +1,103 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📮 StampEllo - Stamps Collection Website
 
-Currently, two official plugins are available:
+StampEllo is a modern MERN (MongoDB, Express, React, Node.js) full-stack web application for stamp collectors. It offers a smooth browsing experience for users and an admin dashboard for managing stamp collections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌐 Live Demo
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Visit: [https://stampello.netlify.app/](https://stampello.netlify.app/)
+
+---
+
+## 🚀 Features
+
+### ✅ For Users
+- Browse stamp collections by category: Events, Persons, Places, Transportation
+- Responsive design with smooth navigation
+- View detailed stamp info with images and metadata
+
+### 🔐 For Admins
+- Login securely via `/admin`
+- Add new stamps with image upload
+- Update existing stamp details
+- Delete stamps from the collection
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: ReactJS, Vite, CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB Atlas
+- **Image Upload**: Multer
+- **Email Service**: EmailJS
+- **Deployment**: Render (Backend), Netlify (Frontend)
+- **Monitoring**: Uptime Robot
+
+---
+
+## 📁 Project Structure
+
+```
+StampEllo/
+├── client/              # React frontend
+│   ├── components/
+│   ├── pages/
+│   └── ...
+├── server/              # Express backend
+│   ├── routes/
+│   ├── controllers/
+│   └── models/
+└── README.md
+```
+
+---
+
+## 📦 Installation
+
+### 🔧 Backend
+
+```bash
+cd server
+npm install
+npm start
+```
+
+### 🌐 Frontend
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+---
+
+## 📤 Deployment
+
+- **Backend**: Deployed on Render
+- **Frontend**: Deployed via GitHub Pages or Netlify
+- **Monitoring**: Uptime Robot ensures backend is always live
+
+---
+
+## 📧 Contact Form
+
+- Email notifications powered by **EmailJS**
+
+---
+
+## 🙌 Author
+
+**Prabhath Kaluarachchi**  
+🌐 [Portfolio](https://prabhath.online/)  
+📧 [Reach me on LinkedIn](https://github.com/prabhathkaluarachchi)
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
