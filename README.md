@@ -78,7 +78,7 @@ npm run dev
 ## 📤 Deployment
 
 - **Backend**: Deployed on Render
-- **Frontend**: Deployed via GitHub Pages or Netlify
+- **Frontend**: Deployed via Netlify
 - **Monitoring**: Uptime Robot ensures backend is always live
 
 ---
