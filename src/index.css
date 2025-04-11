@@ -1355,7 +1355,7 @@ a:hover {
 .stamp-form select option {
   padding: 12px 20px;
   background: var(--primary-color); /* Option background */
-  color: var(--dropdown-text); /* Option text color */
+  color: black; /* Option text color */
 }
 
 .stamp-form textarea {
@@ -1505,10 +1505,17 @@ a:hover {
   width: 250px;
 }
 
+.manage-stamps select option {
+  padding: 12px 20px;
+  background: #e2b616; /* Yellow background for dropdown items */
+  color: black; /* Ensure text is readable on yellow */
+}
+
 .manage-stamps select:focus {
   border-color: var(--primary-color);
   outline: none;
 }
+
 
 .manage-stamps button {
   padding: 10px 20px;
@@ -1594,7 +1601,149 @@ a:hover {
   }
 }
 
+/* Common Admin Page Styles */
+.admin.common {
+  padding: 100px 40px 60px;
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+    linear-gradient(#300000, #300000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.admin.common h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.admin.common input[type="password"],
+.admin.common button {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid var(--glass-border);
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.admin.common input[type="password"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.admin.common button {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  cursor: pointer;
+}
+
+.admin.common button:hover {
+  background: var(--primary-color-dark);
+  border: #f5d76e 1px solid;
+  color: whitesmoke;
+}
+
+/* Admin dashboard buttons */
+.admin.common .button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.admin.common .button-group button {
+  max-width: 200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admin.common {
+    padding: 80px 20px;
+  }
+
+  .admin.common input[type="password"],
+  .admin.common button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .admin.common h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* Small gadget at the edge of the screen */
+.admin-login-slide {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000; /* Make sure it appears above other content */
+  width: 60px; /* Small width for the gadget */
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow-icon {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 50%; /* Make the arrow icon circular */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-login-box {
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  min-width: 180px; /* Set minimum width for the popup box */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.admin-login-button {
+  background-color: yellow;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-login-slide.open .arrow-icon {
+  transform: translateX(60px); /* Move the arrow icon outward when open */
+}
+
+.admin-login-slide.open .admin-login-box {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0); /* Slide in the admin login box */
+}
+
+.admin-login-slide .admin-login-box {
+  transform: translateX(10px); /* Slight offset for smooth slide */
+}
 
 
 

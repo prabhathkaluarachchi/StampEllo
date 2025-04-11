@@ -88,6 +88,13 @@ const Navbar = () => {
             >
               Get in Touch
             </Link>
+            <Link
+              to="/admin"
+              className="navbar-link"
+              onClick={closeAllMenus}
+            >
+              Login
+            </Link>
           </div>
 
           <div className="navbar-hamburger" onClick={toggleMenu}>

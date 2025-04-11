@@ -6,15 +6,19 @@ import PlacesPage from "./pages/PlacesPage";
 import EventsPage from "./pages/EventsPage";
 import AboutPage from "./pages/AboutPage";
 import GetInTouchPage from "./pages/GetInTouchPage";
-import NotFound from "./pages/NotFound"; // Make sure to update if needed
-import AddStampPage from "./pages/AddStampPage"; // ✅ Import the new page
-import ManageStampPage from "./pages/ManageStampPage"; // If ManageStamps is used here
+import NotFound from "./pages/NotFound";
+import AddStampPage from "./pages/AddStampPage";
+import ManageStampPage from "./pages/ManageStampPage";
+import AdminLoginPage from "./pages/AdminLoginPage";
+import AdminDashboardPage from "./pages/AdminDashboardPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <Router basename="/">
       <div className="app">
         <Routes>
+          {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/persons" element={<PersonsPage />} />
           <Route path="/transportation" element={<TransportationPage />} />
@@ -23,13 +27,38 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/get-in-touch" element={<GetInTouchPage />} />
 
-          {/* ✅ New Route for Adding a Stamp */}
-          <Route path="/add-stamp" element={<AddStampPage />} />
+          {/* Admin login page */}
+          <Route path="/admin" element={<AdminLoginPage />} />
 
-          {/* ✅ New Route for Managing Stamps (corrected the component name) */}
-          <Route path="/manage-stamp" element={<ManageStampPage />} />
+          {/*Admin dashboard (protected) */}
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute>
+                <AdminDashboardPage />
+              </ProtectedRoute>
+            }
+          />
 
-          {/* Catch-all route for 404 errors */}
+          {/* Protected admin features */}
+          <Route
+            path="/add-stamp"
+            element={
+              <ProtectedRoute>
+                <AddStampPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/manage-stamp"
+            element={
+              <ProtectedRoute>
+                <ManageStampPage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Catch-all 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
@@ -38,3 +67,4 @@ function App() {
 }
 
 export default App;
+

@@ -4,11 +4,11 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import ManageStamps from "../components/ManageStamps";
 
-const AddStampPage = () => {
+const ManageStampPage = () => {
   return (
     <>
       <Navbar />
-      <div className="add-stamp-page">
+      <div className="manage-stamps">
       <ManageStamps />
       </div>
       <ScrollToTop />
@@ -17,4 +17,4 @@ const AddStampPage = () => {
   );
 };
 
-export default AddStampPage;
+export default ManageStampPage;

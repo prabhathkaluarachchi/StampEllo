@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import "../index.css";
+import Swal from 'sweetalert2';
+
 
 const GetInTouch = () => {
   const form = useRef();
@@ -21,31 +23,29 @@ const GetInTouch = () => {
           setMessageSent(true);
           form.current.reset();
   
-          const successMessage = document.createElement('div');
-          successMessage.textContent = 'Message sent successfully!';
-          Object.assign(successMessage.style, {
-            backgroundColor: '#e2b616',
-            color: '#FFF',
-            padding: '10px',
-            marginTop: '15px',
-            borderRadius: '5px',
-            textAlign: 'center',
+          Swal.fire({
+            title: 'Message Sent!',
+            text: 'Thank you for getting in touch. We will respond soon!',
+            icon: 'success',
+            confirmButtonColor: '#e2b616',
+            confirmButtonText: 'OK'
           });
   
-          // 👇 Insert directly after the submit button
-          const submitButton = form.current.querySelector('button[type="submit"]');
-          submitButton.insertAdjacentElement('afterend', successMessage);
-  
           setTimeout(() => {
-            successMessage.remove();
             setMessageSent(false);
           }, 3000);
         },
         (error) => {
           console.error('FAILED...', error.text);
+          Swal.fire({
+            title: 'Failed to Send',
+            text: 'Please try again later or contact us directly.',
+            icon: 'error',
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'OK'
+          });
         }
       );
-  
   };
 
   return (

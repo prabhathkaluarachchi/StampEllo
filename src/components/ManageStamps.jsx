@@ -1,8 +1,13 @@
 // src/components/ManageStamps.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+  import { useNavigate } from "react-router-dom";
+
 
 const ManageStamps = () => {
+  const navigate = useNavigate();
+
   const [category, setCategory] = useState("Events");
   const [stamps, setStamps] = useState([]);
   const [editStamp, setEditStamp] = useState(null);
@@ -22,6 +27,7 @@ const ManageStamps = () => {
       setStamps(res.data);
     } catch (err) {
       console.error("Error fetching stamps:", err);
+      Swal.fire("Error", "Failed to fetch stamps", "error");
     }
   };
 
@@ -29,8 +35,10 @@ const ManageStamps = () => {
     try {
       await axios.delete(`https://stampello.onrender.com/api/stamps/${id}`);
       fetchStamps(); // Refresh the list
+      Swal.fire("Deleted!", "Stamp has been deleted.", "success");
     } catch (err) {
       console.error("Delete failed:", err);
+      Swal.fire("Error", "Failed to delete stamp", "error");
     }
   };
 
@@ -53,8 +61,10 @@ const ManageStamps = () => {
       );
       setEditStamp(null);
       fetchStamps(); // Refresh list
+      Swal.fire("Updated!", "Stamp has been updated.", "success");
     } catch (err) {
       console.error("Update failed:", err);
+      Swal.fire("Error", "Failed to update stamp", "error");
     }
   };
 
@@ -127,6 +137,20 @@ const ManageStamps = () => {
           </li>
         ))}
       </ul>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
+        <button
+          onClick={() => navigate("/add-stamp")}
+          className="btn btn-secondary"
+        >
+          Go to Add Stamps
+        </button>
+      </div>
     </div>
   );
 };

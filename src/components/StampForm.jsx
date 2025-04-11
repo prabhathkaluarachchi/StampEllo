@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const StampForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: "",
     year: "",
     description: "",
     country: "",
     value: "",
-    category: "Events", // Default to 'Events'
+    category: "Events",
   });
   const [imageFile, setImageFile] = useState(null);
-  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +28,7 @@ const StampForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!imageFile) {
-      setMessage("Please upload an image.");
+      Swal.fire("Image Missing", "Please upload an image.", "warning");
       return;
     }
 
@@ -35,19 +38,19 @@ const StampForm = () => {
 
     try {
       await axios.post("https://stampello.onrender.com/api/stamps/add", data);
-      setMessage("Stamp uploaded successfully!");
+      Swal.fire("Success", "Stamp uploaded successfully!", "success");
       setFormData({
         title: "",
         year: "",
         description: "",
         country: "",
         value: "",
-        category: "",
+        category: "Events",
       });
       setImageFile(null);
     } catch (err) {
       console.error(err);
-      setMessage("Error uploading stamp.");
+      Swal.fire("Error", "Error uploading stamp. Please try again.", "error");
     }
   };
 
@@ -68,6 +71,7 @@ const StampForm = () => {
             <option value="Transportation">Transportation</option>
           </select>
         </div>
+
         <input
           name="title"
           type="text"
@@ -108,7 +112,6 @@ const StampForm = () => {
           required
         />
 
-        {/* Image Upload */}
         <div className="form-group">
           <label>Upload Stamp Image</label>
           <input
@@ -120,16 +123,24 @@ const StampForm = () => {
         </div>
 
         <button type="submit">Add Stamp</button>
-        {message && <p className="status-msg">{message}</p>}
       </form>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
+        <button
+          onClick={() => navigate("/manage-stamp")}
+          className="btn btn-secondary"
+        >
+          Go to Manage Stamps
+        </button>
+      </div>
     </div>
   );
 };
 
 export default StampForm;
-
-
-
-
-
-
