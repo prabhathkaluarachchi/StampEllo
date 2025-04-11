@@ -1474,7 +1474,6 @@ a:hover {
   }
 }
 
-
 /* Manage Stamps Page Styles */
 .manage-stamps {
   padding: 100px 40px 60px;
@@ -1485,7 +1484,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .manage-stamps h2 {
@@ -1495,171 +1494,107 @@ a:hover {
   text-align: center;
 }
 
-.stamp-list {
-  width: 100%;
-  max-width: 800px;
-  margin-top: 20px;
-  list-style: none;
-  padding: 0;
-}
-
-.stamp-list li {
-  background: var(--glass-bg);
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.stamp-list li strong {
-  font-size: 1.2rem;
-  color: var(--text-color);
-}
-
-.stamp-list button {
-  background: var(--primary-color);
-  color: var(--secondary-color);
-  border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  padding: 8px 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.stamp-list button:hover {
-  background: var(--primary-color-dark);
-  color: whitesmoke;
-  border: #f5d76e 1px solid;
-}
-
-.stamp-list button:disabled {
-  background: var(--disabled-bg);
-  cursor: not-allowed;
-}
-
-.manage-stamps .stamp-form {
-  background: var(--glass-bg);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  margin-top: 20px;
-}
-
-.manage-stamps .stamp-form input,
-.manage-stamps .stamp-form select,
-.manage-stamps .stamp-form textarea {
-  width: 100%;
+.manage-stamps select {
+  background: var(--dropdown-bg);
+  color: var(--dropdown-text);
   padding: 12px;
   font-size: 1rem;
   border: 1px solid var(--glass-border);
   border-radius: 5px;
-  background: var(--input-bg);
-  color: var(--text-color);
-  transition: all 0.3s ease;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
+  width: 250px;
 }
 
-.manage-stamps .stamp-form select {
-  background: var(--dropdown-bg);
-  color: var(--dropdown-text);
-}
-
-.manage-stamps .stamp-form select:focus,
-.manage-stamps .stamp-form input:focus,
-.manage-stamps .stamp-form textarea:focus {
+.manage-stamps select:focus {
   border-color: var(--primary-color);
   outline: none;
 }
 
-.manage-stamps .stamp-form button {
-  padding: 12px 20px;
+.manage-stamps button {
+  padding: 10px 20px;
+  margin: 5px;
   background: var(--primary-color);
   color: var(--secondary-color);
   border: none;
   border-radius: 5px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
-  margin-top: 20px;
 }
 
-.manage-stamps .stamp-form button:hover {
+.manage-stamps button:hover {
   background: var(--primary-color-dark);
   color: whitesmoke;
-  border: #f5d76e 1px solid;
+  border: 1px solid #f5d76e;
 }
 
-.manage-stamps .status-msg {
+.stamp-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
+}
+
+.stamp-list li {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs inside edit mode */
+.stamp-list li input,
+.stamp-list li textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 5px;
   color: var(--text-color);
   font-size: 1rem;
-  margin-top: 15px;
-  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.stamp-list li .actions {
-  display: flex;
-  gap: 10px;
+.stamp-list li input:focus,
+.stamp-list li textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
 }
 
-.stamp-list li .actions button {
-  padding: 8px 12px;
-  font-size: 0.9rem;
-}
-
-.stamp-list li .actions button:hover {
-  background: var(--primary-color-dark);
+.stamp-list li textarea {
+  resize: vertical;
+  height: 100px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .manage-stamps h2 {
-    font-size: 1.5rem;
-  }
-
-  .stamp-list {
+  .manage-stamps select {
     width: 90%;
   }
 
   .stamp-list li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .stamp-list li .actions {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .stamp-form {
-    width: 90%;
     padding: 15px;
   }
 
-  .stamp-form input,
-  .stamp-form select,
-  .stamp-form textarea {
-    font-size: 0.9rem;
+  .manage-stamps button {
+    font-size: 0.95rem;
     padding: 10px;
-    margin-bottom: 10px;
   }
 
-  .stamp-form button {
-    font-size: 1rem;
-    padding: 12px;
+  .stamp-list li input,
+  .stamp-list li textarea {
+    font-size: 0.9rem;
   }
 }
+
+
 
 
 

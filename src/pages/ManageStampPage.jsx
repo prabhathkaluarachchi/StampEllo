@@ -9,7 +9,7 @@ const AddStampPage = () => {
     <>
       <Navbar />
       <div className="add-stamp-page">
-        <ManageStamps />
+      <ManageStamps />
       </div>
       <ScrollToTop />
       <Footer />
