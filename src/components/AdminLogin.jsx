@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
-
 const AdminLogin = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -17,6 +16,7 @@ const AdminLogin = () => {
         confirmButtonText: 'Continue'
       }).then(() => {
         localStorage.setItem("isAdmin", "true");
+        localStorage.setItem("loginTime", Date.now());
         navigate("/admin/dashboard");
       });
     } else {
@@ -29,7 +29,6 @@ const AdminLogin = () => {
       });
     }
   };
-  
 
   return (
     <div className="admin common">
@@ -46,3 +45,4 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
+

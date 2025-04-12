@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StampCard from '../components/StampCard';
@@ -11,16 +12,33 @@ const EventsPage = () => {
   const [stamps, setStamps] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const alertShownRef = useRef(false); // Prevent duplicate alerts
   const itemsPerPage = 8;
 
   useEffect(() => {
-    setLoading(true);
-    axios.get('https://stampello.onrender.com/api/stamps?category=Events')
-      .then(response => {
+    const fetchStamps = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('https://stampello.onrender.com/api/stamps?category=Events');
         setStamps(response.data);
         setLoading(false);
-      })
-      .catch(() => setLoading(false));
+
+        if (response.data.length === 0 && !alertShownRef.current) {
+          alertShownRef.current = true;
+          Swal.fire({
+            title: 'No Stamps Available',
+            text: 'There are currently no stamps in the Events category.',
+            icon: 'info',
+            confirmButtonText: 'OK',
+          });
+        }
+      } catch (error) {
+        console.error('Failed to fetch stamps:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchStamps();
   }, []);
 
   const handlePageChange = (page) => {
@@ -65,6 +83,7 @@ const EventsPage = () => {
 };
 
 export default EventsPage;
+
 
 
 

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StampCard from '../components/StampCard';
@@ -11,6 +12,8 @@ const TransportationPage = () => {
   const [stamps, setStamps] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const alertShownRef = useRef(false); // 👉 prevents duplicate SweetAlert
+
   const itemsPerPage = 8;
 
   useEffect(() => {
@@ -20,11 +23,22 @@ const TransportationPage = () => {
         const response = await axios.get('https://stampello.onrender.com/api/stamps?category=Transportation');
         setStamps(response.data);
         setLoading(false);
+
+        if (response.data.length === 0 && !alertShownRef.current) {
+          alertShownRef.current = true; // ✅ prevent future alerts
+          Swal.fire({
+            title: 'No Stamps Available',
+            text: 'There are currently no stamps in the Transportation category.',
+            icon: 'info',
+            confirmButtonText: 'OK',
+          });
+        }
       } catch (error) {
         console.error('Failed to fetch stamps:', error);
         setLoading(false);
       }
     };
+
     fetchStamps();
   }, []);
 
@@ -41,9 +55,7 @@ const TransportationPage = () => {
       <Navbar />
       <div className="category-page transportation-page">
         <h1 className="page-title">Transportation Collection</h1>
-        <p className="page-description">
-          Explore stamps celebrating transportation innovations.
-        </p>
+        <p className="page-description">Explore stamps celebrating transportation innovations.</p>
 
         {loading ? (
           <LoadingSpinner />
@@ -70,3 +82,4 @@ const TransportationPage = () => {
 };
 
 export default TransportationPage;
+

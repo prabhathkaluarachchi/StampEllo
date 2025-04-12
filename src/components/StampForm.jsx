@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,36 @@ const StampForm = () => {
     category: "Events",
   });
   const [imageFile, setImageFile] = useState(null);
+
+  // Auto logout logic
+  useEffect(() => {
+    const logout = () => {
+      Swal.fire({
+        title: "Session Expired",
+        text: "You have been logged out due to inactivity.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      }).then(() => {
+        localStorage.removeItem("isAdmin");
+        navigate("/admin");
+      });
+    };
+
+    let timer = setTimeout(logout, 3 * 60 * 1000);
+    const resetTimer = () => {
+      clearTimeout(timer);
+      timer = setTimeout(logout, 3 * 60 * 1000);
+    };
+
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("keydown", resetTimer);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("mousemove", resetTimer);
+      window.removeEventListener("keydown", resetTimer);
+    };
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,6 +82,23 @@ const StampForm = () => {
       console.error(err);
       Swal.fire("Error", "Error uploading stamp. Please try again.", "error");
     }
+  };
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Logout",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("isAdmin");
+        navigate("/admin");
+      }
+    });
   };
 
   return (
@@ -129,14 +176,15 @@ const StampForm = () => {
         style={{
           display: "flex",
           justifyContent: "center",
+          gap: "1rem",
           marginTop: "20px",
         }}
       >
-        <button
-          onClick={() => navigate("/manage-stamp")}
-          className="btn btn-secondary"
-        >
-          Go to Manage Stamps
+        <button onClick={() => navigate("/admin/dashboard")} className="btn btn-secondary">
+          ← Return to Dashboard
+        </button>
+        <button onClick={handleLogout} className="btn btn-danger">
+          🔓 Logout
         </button>
       </div>
     </div>
@@ -144,3 +192,4 @@ const StampForm = () => {
 };
 
 export default StampForm;
+

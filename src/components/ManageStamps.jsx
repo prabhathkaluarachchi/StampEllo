@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-  import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const ManageStamps = () => {
   const navigate = useNavigate();
@@ -18,6 +17,53 @@ const ManageStamps = () => {
     value: "",
   });
 
+  useEffect(() => {
+    const logout = () => {
+      Swal.fire({
+        title: "Session Expired",
+        text: "You have been logged out due to inactivity.",
+        icon: "warning",
+        confirmButtonText: "OK"
+      }).then(() => {
+        localStorage.removeItem("isAdmin");
+        navigate("/admin");
+      });
+    };
+
+    let timer = setTimeout(logout, 3 * 60 * 1000);
+
+    const resetTimer = () => {
+      clearTimeout(timer);
+      timer = setTimeout(logout, 3 * 60 * 1000);
+    };
+
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("keydown", resetTimer);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("mousemove", resetTimer);
+      window.removeEventListener("keydown", resetTimer);
+    };
+  }, [navigate]);
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Logout"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("isAdmin");
+        navigate("/admin");
+      }
+    });
+  };
+
   const fetchStamps = async () => {
     try {
       const res = await axios.get(
@@ -31,15 +77,28 @@ const ManageStamps = () => {
   };
 
   const handleDelete = async (id) => {
-    try {
-      await axios.delete(`https://stampello.onrender.com/api/stamps/${id}`);
-      fetchStamps(); // Refresh the list
-      Swal.fire("Deleted!", "Stamp has been deleted.", "success");
-    } catch (err) {
-      console.error("Delete failed:", err);
-      Swal.fire("Error", "Failed to delete stamp", "error");
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This stamp will be permanently deleted.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(`https://stampello.onrender.com/api/stamps/${id}`);
+          fetchStamps(); // Refresh the list
+          Swal.fire("Deleted!", "Stamp has been deleted.", "success");
+        } catch (err) {
+          console.error("Delete failed:", err);
+          Swal.fire("Error", "Failed to delete stamp", "error");
+        }
+      }
+    });
   };
+  
 
   const handleEdit = (stamp) => {
     setEditStamp(stamp._id);
@@ -136,18 +195,20 @@ const ManageStamps = () => {
           </li>
         ))}
       </ul>
+
       <div
         style={{
           display: "flex",
           justifyContent: "center",
+          gap: "1rem",
           marginTop: "20px",
         }}
       >
-        <button
-          onClick={() => navigate("/add-stamp")}
-          className="btn btn-secondary"
-        >
-          Go to Add Stamps
+        <button onClick={() => navigate("/admin/dashboard")} className="btn btn-secondary">
+          ← Return to Dashboard
+        </button>
+        <button onClick={handleLogout} className="btn btn-danger">
+          🔓 Logout
         </button>
       </div>
     </div>
