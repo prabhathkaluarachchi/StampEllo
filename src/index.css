@@ -1,10 +1,9 @@
-
 /* Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
@@ -66,7 +65,7 @@ a:hover {
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   display: block;
   width: 80px;
   height: 4px;
@@ -238,7 +237,7 @@ a:hover {
   .navbar-hamburger {
     display: flex;
   }
-  
+
   .navbar-links {
     position: absolute;
     top: 70px;
@@ -255,7 +254,7 @@ a:hover {
     transform: translateY(-150%);
     transition: transform 0.3s ease;
   }
-  
+
   .navbar-links.active {
     transform: translateY(0);
   }
@@ -292,12 +291,8 @@ a:hover {
 /* Hero Styles */
 .hero {
   height: 100vh;
-  background: 
-  linear-gradient(
-    rgba(0, 0, 0, 0.6), 
-    rgba(0, 0, 0, 1)
-  ),
-  #300000 url('./assets/img/hero-04.jpg') no-repeat center center / cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)),
+    #300000 url("./assets/img/hero-04.jpg") no-repeat center center / cover;
 
   display: flex;
   align-items: center;
@@ -344,11 +339,11 @@ a:hover {
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;
@@ -358,9 +353,8 @@ a:hover {
 /* Categories Styles */
 .categories {
   padding: 50px 0;
-  background:
-  linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
-  linear-gradient(	#300000, 	#300000);
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+    linear-gradient(#300000, #300000);
 }
 
 .categories-grid {
@@ -415,11 +409,8 @@ a:hover {
 /* Carousel Styles */
 .recent-stamps {
   padding: 50px 0;
-  background:
-  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
-  linear-gradient(	#300000, 	#300000);
-
-
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    linear-gradient(#300000, #300000);
 }
 
 .carousel {
@@ -554,19 +545,19 @@ a:hover {
   .carousel-content {
     height: 500px;
   }
-  
+
   .stamp-card {
     flex-direction: column;
   }
-  
+
   .stamp-image {
     height: 200px;
   }
-  
+
   .stamp-info {
     padding: 20px;
   }
-  
+
   .stamp-info h3 {
     font-size: 1.5rem;
   }
@@ -575,8 +566,7 @@ a:hover {
 /* About Styles */
 .about {
   padding: 50px 0;
-  background:
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
 }
 
@@ -616,7 +606,8 @@ a:hover {
 }
 
 .creator-card {
-  background: var(--glass-bg);  backdrop-filter: blur(10px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
@@ -639,7 +630,7 @@ a:hover {
   border-radius: 10%;
   background: #333;
   margin: 0 auto 15px;
-  background-image: url('./assets/img/myimage.jpg');
+  background-image: url("./assets/img/myimage.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -671,12 +662,12 @@ a:hover {
   .about-content {
     flex-direction: column;
   }
-  
+
   .about-text,
   .creator-info {
     width: 100%;
   }
-  
+
   .creator-card {
     margin-top: 30px; /* Add space between sections in mobile */
     height: auto; /* Allow natural height in mobile */
@@ -686,8 +677,7 @@ a:hover {
 /* Get in Touch Styles */
 .get-in-touch {
   padding: 80px 0;
-  background:
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
 }
 
@@ -791,12 +781,9 @@ a:hover {
   }
 }
 
-
-
 /* Footer Styles */
 .footer {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
     linear-gradient(#300000, #300000);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1026,7 +1013,7 @@ a:hover {
   .pagination {
     flex-wrap: wrap;
   }
-  
+
   .page-numbers {
     order: 1;
     width: 100%;
@@ -1039,8 +1026,7 @@ a:hover {
 .category-page {
   padding: 100px 40px 60px; /* Added some padding to avoid content being too close to the edges */
   min-height: 100vh;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
   display: flex;
   flex-direction: column;
@@ -1163,13 +1149,11 @@ a:hover {
   }
 }
 
-
 /* About Page Styles */
 .about-page {
   padding: 100px 0 60px;
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
 }
 
@@ -1202,9 +1186,6 @@ a:hover {
   color: var(--primary-color);
   margin-bottom: 50px;
 }
-
-
-
 
 /* Error Boundary */
 .error-boundary {
@@ -1249,7 +1230,6 @@ a:hover {
   margin-right: auto;
 }
 
-
 /* Scroll to Top */
 .scroll-to-top {
   position: fixed;
@@ -1268,7 +1248,6 @@ a:hover {
 
 .scroll-to-top:hover {
   transform: scale(1.3);
-
 }
 
 .scroll-to-top.show {
@@ -1282,13 +1261,11 @@ a:hover {
   }
 }
 
-
 /* Add Stamp Page Styles */
 .add-stamp-page {
   padding: 100px 40px 60px; /* Added some padding to avoid content being too close to the edges */
   min-height: 100vh;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
   display: flex;
   flex-direction: column;
@@ -1379,8 +1356,7 @@ a:hover {
 .stamp-form button:hover {
   background: var(--primary-color-dark);
   border: #f5d76e 1px solid;
-  color: whitesmoke ;
-
+  color: whitesmoke;
 }
 
 .stamp-form .status-msg {
@@ -1405,7 +1381,6 @@ a:hover {
 
 .stamp-form .form-group input[type="file"]:focus {
   border-color: var(--primary-color);
-
 }
 
 .stamp-form .form-group input[type="file"]::-webkit-file-upload-button {
@@ -1478,8 +1453,7 @@ a:hover {
 .manage-stamps {
   padding: 100px 40px 60px;
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
   display: flex;
   flex-direction: column;
@@ -1515,7 +1489,6 @@ a:hover {
   border-color: var(--primary-color);
   outline: none;
 }
-
 
 .manage-stamps button {
   padding: 10px 20px;
@@ -1605,8 +1578,7 @@ a:hover {
 .admin.common {
   padding: 100px 40px 60px;
   min-height: 100vh;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
     linear-gradient(#300000, #300000);
   display: flex;
   flex-direction: column;
@@ -1681,69 +1653,3 @@ a:hover {
     font-size: 1.8rem;
   }
 }
-
-
-/* Small gadget at the edge of the screen */
-.admin-login-slide {
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000; /* Make sure it appears above other content */
-  width: 60px; /* Small width for the gadget */
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-.arrow-icon {
-  background-color: white;
-  color: black;
-  padding: 10px;
-  border-radius: 50%; /* Make the arrow icon circular */
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.admin-login-box {
-  background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  min-width: 180px; /* Set minimum width for the popup box */
-  visibility: hidden; /* Hidden by default */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-.admin-login-button {
-  background-color: yellow;
-  color: black;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.admin-login-slide.open .arrow-icon {
-  transform: translateX(60px); /* Move the arrow icon outward when open */
-}
-
-.admin-login-slide.open .admin-login-box {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(0); /* Slide in the admin login box */
-}
-
-.admin-login-slide .admin-login-box {
-  transform: translateX(10px); /* Slight offset for smooth slide */
-}
-
-
-

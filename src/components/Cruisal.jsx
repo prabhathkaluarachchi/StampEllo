@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../index.css';
 import LoadingSpinner from './LoadingSpinner';
 
 const Cruisal = () => {
