@@ -133,7 +133,7 @@ a:hover {
   width: 100%;
   top: 0;
   z-index: 1000;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 
 .navbar-container {
@@ -319,6 +319,34 @@ a:hover {
   }
 }
 
+@media (min-width: 769px) and (max-width: 991px) {
+  /* Don't touch navbar-links layout here */
+  
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 200px;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
 
 /* ============================================= */
 /* 3. HERO SECTION */
