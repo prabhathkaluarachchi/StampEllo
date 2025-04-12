@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Public pages -->
   <url>
     <loc>https://stampello.netlify.app/</loc>
     <priority>1.0</priority>
@@ -30,8 +28,6 @@
     <loc>https://stampello.netlify.app/get-in-touch</loc>
     <priority>0.6</priority>
   </url>
-
-  <!-- Admin login page -->
   <url>
     <loc>https://stampello.netlify.app/admin</loc>
     <priority>0.7</priority>
