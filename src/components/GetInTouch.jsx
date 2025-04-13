@@ -1,27 +1,49 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react"; 
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
-
 const GetInTouch = () => {
   const form = useRef();
-  const [messageSent, setMessageSent] = useState(false);
+  const [adminDetails, setAdminDetails] = useState(null); // To store admin details
 
+  // Fetch admin details from the backend to pass them to EmailJS
+  useEffect(() => {
+    fetch("https://stampello.onrender.com/api/admin/details")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.password) { // If the admin details are fetched successfully
+          setAdminDetails(data); // Store admin details in state
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching admin details:", error);
+        Swal.fire("Error", "Failed to fetch admin credentials", "error");
+      });
+  }, []);
+
+  // Send email function using emailJS
   const sendEmail = (e) => {
-    e.preventDefault();
-  
+    e.preventDefault(); // Prevent form from reloading the page on submit
+
+    if (!adminDetails) {
+      // Make sure the admin details are fetched before sending email
+      Swal.fire("Error", "Admin details not loaded yet!", "error");
+      return;
+    }
+
+    // Sending email using EmailJS with the form data and the admin details
     emailjs
       .sendForm(
-        'service_v6e5gws',
-        'template_js4cfyx',
-        form.current,
-        'Rl278ZygRImAbAYHh'
+        adminDetails.serviceId,  // Service ID from admin details
+        adminDetails.templateId,  // Template ID from admin details
+        form.current, // Form reference
+        adminDetails.publicKey    // Public Key from admin details
       )
       .then(
         () => {
-          setMessageSent(true);
-          form.current.reset();
-  
+          form.current.reset();  // Reset the form after submission
+
+          // Show success message using SweetAlert
           Swal.fire({
             title: 'Message Sent!',
             text: 'Thank you for getting in touch. We will respond soon!',
@@ -29,13 +51,10 @@ const GetInTouch = () => {
             confirmButtonColor: '#e2b616',
             confirmButtonText: 'OK'
           });
-  
-          setTimeout(() => {
-            setMessageSent(false);
-          }, 3000);
         },
         (error) => {
           console.error('FAILED...', error.text);
+          // Show error message if email sending fails
           Swal.fire({
             title: 'Failed to Send',
             text: 'Please try again later or contact us directly.',
@@ -107,3 +126,5 @@ const GetInTouch = () => {
 };
 
 export default GetInTouch;
+
+
