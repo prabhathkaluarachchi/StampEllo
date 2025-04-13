@@ -4,26 +4,26 @@ import Swal from "sweetalert2";
 
 const AdminLogin = () => {
   const [passwordInput, setPasswordInput] = useState("");
-  const [dbPassword, setDbPassword] = useState("");
+  const [adminDetails, setAdminDetails] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch password from the backend
+  // Fetch admin details from the backend
   useEffect(() => {
-    fetch("https://stampello.onrender.com/api/admin/password")
+    fetch("https://stampello.onrender.com/api/admin/details")
       .then((res) => res.json())
       .then((data) => {
         if (data.password) {
-          setDbPassword(data.password);
+          setAdminDetails(data);
         }
       })
       .catch((error) => {
-        console.error("Error fetching admin password:", error);
+        console.error("Error fetching admin details:", error);
         Swal.fire("Error", "Failed to fetch admin credentials", "error");
       });
   }, []);
 
   const handleLogin = () => {
-    if (passwordInput === dbPassword) {
+    if (passwordInput === adminDetails?.password) {
       Swal.fire({
         title: "Login Successful!",
         text: "Welcome, Admin!",
